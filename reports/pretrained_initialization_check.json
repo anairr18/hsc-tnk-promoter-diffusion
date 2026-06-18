@@ -1,0 +1,24 @@
+{
+  "true_pretrained_training_supported_by_current_train_py": false,
+  "recommended_poc_baseline": "training_from_scratch_or_apply_model_patch",
+  "evidence": {
+    "repo": "C:\\Users\\Aadi Nair\\DNA-Diffusion",
+    "train_py_exists": true,
+    "sample_hf_exists": true,
+    "unet_pretrained_config_exists": true,
+    "pretrained_unet_wrapper_exists": true,
+    "train_mentions_from_pretrained": false,
+    "train_mentions_load_state_dict": false,
+    "train_mentions_checkpoint_path": false,
+    "sample_hf_mentions_from_pretrained": false,
+    "unet_pretrained_mentions_from_pretrained": true,
+    "unet_pretrained_target": [
+      "src.dnadiffusion.models.pretrained_unet.PretrainedUNet.from_pretrained"
+    ]
+  },
+  "notes": [
+    "sample_hf.py can instantiate PretrainedUNet.from_pretrained for sampling.",
+    "train.py must load pretrained weights before optimizer construction to perform true fine-tuning.",
+    "If unsupported, record the first POC as a from-scratch baseline and run a second patched fine-tune later."
+  ]
+}

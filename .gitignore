@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Runtime outputs and large regenerated assets
+dna_diffusion_cache/
+downloads/*.gz
+downloads/*.fa
+downloads/*.fasta
+data/
+outputs/
+wetlab/
+
+# Local editor/system files
+.DS_Store
+Thumbs.db

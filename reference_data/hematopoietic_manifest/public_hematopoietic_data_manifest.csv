@@ -1,0 +1,9 @@
+source,assays,use,cell_states,assembly,url,access,priority
+FANTOM5,CAGE/promoter atlas,TSS choice and transcription-initiation signal,blood and immune cell samples where available,hg19/source-dependent; lift to hg38,https://fantom.gsc.riken.jp/5/,public,required
+ENCODE,ATAC/DNase/RAMPAGE/CAGE/RNA-seq,"accessibility, initiation, expression, cCRE overlap",CD34/HSPC and mature immune cells where available,hg38 preferred,https://www.encodeproject.org/,public,required
+BLUEPRINT,"RNA-seq, DNase/ATAC, histone marks",hematopoietic lineage expression and epigenome profiles,"HSC/HSPC, progenitors, myeloid, lymphoid",source-dependent; harmonize to hg38,https://projects.ensembl.org/blueprint/,mixed public/controlled,required-if-accessible
+Roadmap Epigenomics,"DNase, histone marks, RNA-seq",fallback hematopoietic epigenome coverage,CD34 and immune/blood reference states,hg19; lift to hg38,https://egg2.wustl.edu/roadmap/web_portal/processed_data.html,public,high
+DICE,RNA-seq and immune epigenomics,mature immune off-target and T/NK reference profiles,"T, NK, B, monocytes and immune subsets",source-dependent; harmonize to hg38,https://dice-database.org/,public,high
+Human Cell Atlas / 10x,scRNA/scATAC/multiome,CD34 differentiation pseudobulk profiles,"HSC/HSPC, progenitors, mature bone marrow lineages",source-dependent; harmonize to hg38/gene IDs,https://data.humancellatlas.org/,public,high
+ENCODE SCREEN,cCRE annotations,promoter/enhancer annotation and blacklist-like filtering,all available,hg38,https://screen.encodeproject.org/,public,required
+JASPAR/HOCOMOCO,TF motif models,"motif enrichment, unwanted motif filtering, interpretability",not cell-state-specific,not applicable,https://jaspar.elixir.no/,public,required

@@ -1,0 +1,5 @@
+# Install these only in a GPU environment after selecting compatible torch/CUDA wheels.
+torch
+transformers
+enformer-pytorch==0.5.3
+safetensors

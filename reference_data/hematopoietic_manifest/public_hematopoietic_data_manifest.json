@@ -1,0 +1,82 @@
+[
+  {
+    "access": "public",
+    "assays": "CAGE/promoter atlas",
+    "assembly": "hg19/source-dependent; lift to hg38",
+    "cell_states": "blood and immune cell samples where available",
+    "priority": "required",
+    "source": "FANTOM5",
+    "url": "https://fantom.gsc.riken.jp/5/",
+    "use": "TSS choice and transcription-initiation signal"
+  },
+  {
+    "access": "public",
+    "assays": "ATAC/DNase/RAMPAGE/CAGE/RNA-seq",
+    "assembly": "hg38 preferred",
+    "cell_states": "CD34/HSPC and mature immune cells where available",
+    "priority": "required",
+    "source": "ENCODE",
+    "url": "https://www.encodeproject.org/",
+    "use": "accessibility, initiation, expression, cCRE overlap"
+  },
+  {
+    "access": "mixed public/controlled",
+    "assays": "RNA-seq, DNase/ATAC, histone marks",
+    "assembly": "source-dependent; harmonize to hg38",
+    "cell_states": "HSC/HSPC, progenitors, myeloid, lymphoid",
+    "priority": "required-if-accessible",
+    "source": "BLUEPRINT",
+    "url": "https://projects.ensembl.org/blueprint/",
+    "use": "hematopoietic lineage expression and epigenome profiles"
+  },
+  {
+    "access": "public",
+    "assays": "DNase, histone marks, RNA-seq",
+    "assembly": "hg19; lift to hg38",
+    "cell_states": "CD34 and immune/blood reference states",
+    "priority": "high",
+    "source": "Roadmap Epigenomics",
+    "url": "https://egg2.wustl.edu/roadmap/web_portal/processed_data.html",
+    "use": "fallback hematopoietic epigenome coverage"
+  },
+  {
+    "access": "public",
+    "assays": "RNA-seq and immune epigenomics",
+    "assembly": "source-dependent; harmonize to hg38",
+    "cell_states": "T, NK, B, monocytes and immune subsets",
+    "priority": "high",
+    "source": "DICE",
+    "url": "https://dice-database.org/",
+    "use": "mature immune off-target and T/NK reference profiles"
+  },
+  {
+    "access": "public",
+    "assays": "scRNA/scATAC/multiome",
+    "assembly": "source-dependent; harmonize to hg38/gene IDs",
+    "cell_states": "HSC/HSPC, progenitors, mature bone marrow lineages",
+    "priority": "high",
+    "source": "Human Cell Atlas / 10x",
+    "url": "https://data.humancellatlas.org/",
+    "use": "CD34 differentiation pseudobulk profiles"
+  },
+  {
+    "access": "public",
+    "assays": "cCRE annotations",
+    "assembly": "hg38",
+    "cell_states": "all available",
+    "priority": "required",
+    "source": "ENCODE SCREEN",
+    "url": "https://screen.encodeproject.org/",
+    "use": "promoter/enhancer annotation and blacklist-like filtering"
+  },
+  {
+    "access": "public",
+    "assays": "TF motif models",
+    "assembly": "not applicable",
+    "cell_states": "not cell-state-specific",
+    "priority": "required",
+    "source": "JASPAR/HOCOMOCO",
+    "url": "https://jaspar.elixir.no/",
+    "use": "motif enrichment, unwanted motif filtering, interpretability"
+  }
+]
