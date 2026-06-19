@@ -16,7 +16,7 @@ except ImportError:
     drive = None
     IN_COLAB = False
 
-if IN_COLAB:
+if IN_COLAB and os.environ.get("DNA_DIFFUSION_CACHE", "").startswith("/content/drive"):
     drive.mount('/content/drive', force_remount=False)
 
 DEFAULT_CACHE = (
