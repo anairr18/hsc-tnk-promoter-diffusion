@@ -30,6 +30,18 @@ if (-not $gpuOk -and -not $AllowCpu) {
 Write-Host "== Installing lightweight requirements =="
 python -m pip install -r "$ProjectRoot\requirements.txt"
 
+Write-Host "== Ensuring uv and DNA-Diffusion repo =="
+$uv = Get-Command uv -ErrorAction SilentlyContinue
+if (-not $uv) {
+  python -m pip install -q uv
+}
+if (-not (Test-Path (Join-Path $DNADiffusionRepo ".git"))) {
+  if (Test-Path $DNADiffusionRepo) {
+    Remove-Item -Recurse -Force $DNADiffusionRepo
+  }
+  git clone https://github.com/pinellolab/DNA-Diffusion.git $DNADiffusionRepo
+}
+
 Write-Host "== Downloading metadata =="
 python "$ProjectRoot\scripts\download_project_assets.py" --output-dir "$ProjectRoot\downloads"
 

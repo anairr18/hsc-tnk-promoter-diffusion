@@ -28,6 +28,15 @@ fi
 echo "== Installing lightweight requirements =="
 python -m pip install -r "$PROJECT_ROOT/requirements.txt"
 
+echo "== Ensuring uv and DNA-Diffusion repo =="
+if ! command -v uv >/dev/null 2>&1; then
+  python -m pip install -q uv
+fi
+if [[ ! -d "$DNA_DIFFUSION_REPO/.git" ]]; then
+  rm -rf "$DNA_DIFFUSION_REPO"
+  git clone https://github.com/pinellolab/DNA-Diffusion.git "$DNA_DIFFUSION_REPO"
+fi
+
 echo "== Downloading metadata =="
 python "$PROJECT_ROOT/scripts/download_project_assets.py" --output-dir "$PROJECT_ROOT/downloads"
 
