@@ -67,12 +67,21 @@ python scripts/curate_stage2_inputs_from_web.py --live-encode --limit-per-encode
 Build real publishable inputs from public files:
 
 ```bash
+python scripts/download_encode_stage2_public_data.py \
+  --refresh-query \
+  --download \
+  --output-dir downloads/encode_stage2
+
+python scripts/expression_from_anndata.py \
+  --h5ad /path/to/public_bone_marrow_or_hematopoiesis.h5ad \
+  --cell-type-column cell_type \
+  --output data/hsc_tnk_real/hca_expression_long.tsv
+
 python scripts/build_real_stage2_inputs.py \
   --output-dir data/hsc_tnk_real \
   --download-references \
-  --fantom-tss-bed /path/to/fantom_tss.bed \
-  --signal-manifest /path/to/signal_manifest.tsv \
-  --expression-long /path/to/expression_long.tsv \
+  --signal-manifest downloads/encode_stage2/signal_manifest.tsv \
+  --expression-long data/hsc_tnk_real/hca_expression_long.tsv \
   --tss-activity-long /path/to/tss_activity_long.tsv \
   --strict
 ```

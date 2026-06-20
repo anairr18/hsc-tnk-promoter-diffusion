@@ -96,12 +96,23 @@ For publishable HSC/T-NK candidate claims, build or provide real public-data inp
 ```bash
 STAGE2_MODE=real \
 BUILD_REAL_STAGE2_INPUTS=1 \
+BUILD_ENCODE_STAGE2_DATA=1 \
+DOWNLOAD_ENCODE_FILES=1 \
 DOWNLOAD_REFERENCES=1 \
-FANTOM_TSS_BED=/path/to/fantom_hg38_tss.bed \
-SIGNAL_MANIFEST=/path/to/signal_manifest.tsv \
-EXPRESSION_LONG_TSV=/path/to/expression_long.tsv \
-TSS_ACTIVITY_LONG_TSV=/path/to/tss_activity_long.tsv \
+HCA_H5AD=/path/to/public_bone_marrow_or_hematopoiesis.h5ad \
+HCA_CELL_TYPE_COLUMN=/obs/cell_type_column_name \
 bash run_all_computational.sh
+```
+
+This automatically selects and downloads ENCODE GRCh38 bigWigs for accessibility, initiation, and promoter-proximal RNA signal. `HCA_H5AD` is strongly recommended because ENCODE does not fully cover megakaryocyte/HSPC expression; the AnnData converter creates `expression_long.tsv` from public single-cell data.
+
+Optional extra public inputs can still be supplied:
+
+```bash
+FANTOM_TSS_BED=/path/to/fantom_hg38_tss.bed
+SIGNAL_MANIFEST=/path/to/additional_signal_manifest.tsv
+EXPRESSION_LONG_TSV=/path/to/additional_expression_long.tsv
+TSS_ACTIVITY_LONG_TSV=/path/to/additional_tss_activity_long.tsv
 ```
 
 If you already built the tables elsewhere, provide them directly:
@@ -157,6 +168,23 @@ promoter_id cell_type value source accession replicate
 ```
 
 Use FANTOM5 CAGE or ENCODE CAGE/RAMPAGE TSS activity. The builder applies `log1p` and joins nearest same-strand TSS within 50bp.
+
+To preview ENCODE coverage without downloading large files:
+
+```bash
+python scripts/download_encode_stage2_public_data.py \
+  --refresh-query \
+  --output-dir downloads/encode_stage2_preview
+```
+
+To convert public HCA/BLUEPRINT AnnData into expression input:
+
+```bash
+python scripts/expression_from_anndata.py \
+  --h5ad /path/to/public_bone_marrow_or_hematopoiesis.h5ad \
+  --cell-type-column cell_type \
+  --output data/hsc_tnk_real/hca_expression_long.tsv
+```
 
 After a real run:
 

@@ -322,7 +322,7 @@ def bigwig_mean_signal(promoters: pd.DataFrame, manifest: Path) -> tuple[pd.Data
             raise FileNotFoundError(path)
         cell = harmonize_cell(str(item["cell_type"]))
         assay = harmonize_assay(str(item["assay"]))
-        if cell not in VALID_CELL_TYPES or assay not in {"accessibility", "initiation"}:
+        if cell not in VALID_CELL_TYPES or assay not in VALID_ASSAYS:
             raise ValueError(f"invalid signal row cell/assay: {cell}/{assay}")
         bw = pyBigWig.open(str(path))
         try:

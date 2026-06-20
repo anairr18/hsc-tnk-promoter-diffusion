@@ -10,6 +10,7 @@ RUN_STAGE1="${RUN_STAGE1:-1}"
 RUN_STAGE2="${RUN_STAGE2:-1}"
 STAGE2_MODE="${STAGE2_MODE:-demo}"   # demo or real
 BUILD_REAL_STAGE2_INPUTS="${BUILD_REAL_STAGE2_INPUTS:-0}"
+BUILD_ENCODE_STAGE2_DATA="${BUILD_ENCODE_STAGE2_DATA:-0}"
 STRICT_REAL_INPUTS="${STRICT_REAL_INPUTS:-1}"
 PATCH_PRETRAINED="${PATCH_PRETRAINED:-1}"
 
@@ -53,6 +54,44 @@ if [[ "$STAGE2_MODE" == "demo" ]]; then
 else
   if [[ "$BUILD_REAL_STAGE2_INPUTS" == "1" ]]; then
     REAL_INPUT_DIR="${REAL_INPUT_DIR:-$PROJECT_ROOT/data/hsc_tnk_real}"
+    if [[ "$BUILD_ENCODE_STAGE2_DATA" == "1" ]]; then
+      ENCODE_STAGE2_DIR="${ENCODE_STAGE2_DIR:-$PROJECT_ROOT/downloads/encode_stage2}"
+      ENCODE_ARGS=(
+        "$PROJECT_ROOT/scripts/download_encode_stage2_public_data.py"
+        --refresh-query
+        --output-dir "$ENCODE_STAGE2_DIR"
+        --max-experiments-per-cell-assay "${ENCODE_MAX_EXPERIMENTS_PER_CELL_ASSAY:-1}"
+        --max-files-per-experiment "${ENCODE_MAX_FILES_PER_EXPERIMENT:-2}"
+      )
+      if [[ "${DOWNLOAD_ENCODE_FILES:-1}" == "1" ]]; then
+        ENCODE_ARGS+=(--download)
+      fi
+      python "${ENCODE_ARGS[@]}"
+      if [[ -z "${SIGNAL_MANIFEST:-}" ]]; then
+        SIGNAL_MANIFEST="$ENCODE_STAGE2_DIR/signal_manifest.tsv"
+      fi
+    fi
+    if [[ -n "${HCA_H5AD:-}" && -z "${EXPRESSION_LONG_TSV:-}" ]]; then
+      HCA_EXPR_OUT="$REAL_INPUT_DIR/hca_expression_long.tsv"
+      HCA_ARGS=(
+        "$PROJECT_ROOT/scripts/expression_from_anndata.py"
+        --h5ad "$HCA_H5AD"
+        --output "$HCA_EXPR_OUT"
+        --source "${HCA_SOURCE_LABEL:-HCA}"
+        --accession "${HCA_ACCESSION:-}"
+      )
+      if [[ -n "${HCA_CELL_TYPE_COLUMN:-}" ]]; then
+        HCA_ARGS+=(--cell-type-column "$HCA_CELL_TYPE_COLUMN")
+      fi
+      if [[ -n "${HCA_LAYER:-}" ]]; then
+        HCA_ARGS+=(--layer "$HCA_LAYER")
+      fi
+      if [[ "${HCA_USE_RAW:-0}" == "1" ]]; then
+        HCA_ARGS+=(--use-raw)
+      fi
+      python "${HCA_ARGS[@]}"
+      EXPRESSION_LONG_TSV="$HCA_EXPR_OUT"
+    fi
     REAL_BUILD_ARGS=(
       "$PROJECT_ROOT/scripts/build_real_stage2_inputs.py"
       --output-dir "$REAL_INPUT_DIR"
