@@ -11,6 +11,8 @@ RUN_STAGE2="${RUN_STAGE2:-1}"
 STAGE2_MODE="${STAGE2_MODE:-demo}"   # demo or real
 BUILD_REAL_STAGE2_INPUTS="${BUILD_REAL_STAGE2_INPUTS:-0}"
 BUILD_ENCODE_STAGE2_DATA="${BUILD_ENCODE_STAGE2_DATA:-0}"
+BUILD_HCA_EXPRESSION="${BUILD_HCA_EXPRESSION:-1}"
+BUILD_HPA_EXPRESSION="${BUILD_HPA_EXPRESSION:-1}"
 STRICT_REAL_INPUTS="${STRICT_REAL_INPUTS:-1}"
 PATCH_PRETRAINED="${PATCH_PRETRAINED:-1}"
 
@@ -71,6 +73,35 @@ else
         SIGNAL_MANIFEST="$ENCODE_STAGE2_DIR/signal_manifest.tsv"
       fi
     fi
+    if [[ "$BUILD_HCA_EXPRESSION" == "1" && -z "${EXPRESSION_LONG_TSV:-}" && -z "${HCA_H5AD:-}" ]]; then
+      HCA_EXPR_OUT="$REAL_INPUT_DIR/hca_expression_long.tsv"
+      HCA_DL_DIR="${HCA_DOWNLOAD_DIR:-$PROJECT_ROOT/downloads/hca_cellxgene}"
+      HCA_AUTO_ARGS=(
+        "$PROJECT_ROOT/scripts/download_hca_stage2_expression.py"
+        --download-dir "$HCA_DL_DIR"
+        --output "$HCA_EXPR_OUT"
+        --collection-id "${HCA_COLLECTION_ID:-f6c50495-3361-40ed-a819-fb9644396ed9}"
+        --min-cells "${HCA_MIN_CELLS:-20}"
+        --max-cells-per-state "${HCA_MAX_CELLS_PER_STATE:-5000}"
+      )
+      if [[ -n "${HCA_DATASET_ID:-}" ]]; then
+        HCA_AUTO_ARGS+=(--dataset-id "$HCA_DATASET_ID")
+      fi
+      if [[ -n "${HCA_CELL_TYPE_COLUMN:-}" ]]; then
+        HCA_AUTO_ARGS+=(--cell-type-column "$HCA_CELL_TYPE_COLUMN")
+      fi
+      if [[ -n "${HCA_LAYER:-}" ]]; then
+        HCA_AUTO_ARGS+=(--layer "$HCA_LAYER")
+      fi
+      if [[ "${HCA_USE_RAW:-0}" == "1" ]]; then
+        HCA_AUTO_ARGS+=(--use-raw)
+      fi
+      if python "${HCA_AUTO_ARGS[@]}"; then
+        EXPRESSION_LONG_TSV="$HCA_EXPR_OUT"
+      else
+        echo "Automatic HCA/CELLxGENE expression build failed; trying HPA fallback." >&2
+      fi
+    fi
     if [[ -n "${HCA_H5AD:-}" && -z "${EXPRESSION_LONG_TSV:-}" ]]; then
       HCA_EXPR_OUT="$REAL_INPUT_DIR/hca_expression_long.tsv"
       HCA_ARGS=(
@@ -91,6 +122,13 @@ else
       fi
       python "${HCA_ARGS[@]}"
       EXPRESSION_LONG_TSV="$HCA_EXPR_OUT"
+    fi
+    if [[ "$BUILD_HPA_EXPRESSION" == "1" && -z "${EXPRESSION_LONG_TSV:-}" ]]; then
+      HPA_EXPR_OUT="$REAL_INPUT_DIR/hpa_expression_long.tsv"
+      python "$PROJECT_ROOT/scripts/download_hpa_stage2_expression.py" \
+        --output "$HPA_EXPR_OUT" \
+        --download-dir "${HPA_DOWNLOAD_DIR:-$PROJECT_ROOT/downloads/hpa}"
+      EXPRESSION_LONG_TSV="$HPA_EXPR_OUT"
     fi
     REAL_BUILD_ARGS=(
       "$PROJECT_ROOT/scripts/build_real_stage2_inputs.py"

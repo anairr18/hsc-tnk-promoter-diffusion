@@ -1,0 +1,12 @@
+{
+  "asset_filesize": 2829048029,
+  "asset_filetype": "H5AD",
+  "asset_url": "https://datasets.cellxgene.cziscience.com/4d7b34ed-d725-43eb-865f-87be6a467323.h5ad",
+  "collection_id": "f6c50495-3361-40ed-a819-fb9644396ed9",
+  "collection_name": "A Balanced Bone Marrow Reference Map of Hematopoietic Development",
+  "collection_url": "https://cellxgene.cziscience.com/collections/f6c50495-3361-40ed-a819-fb9644396ed9",
+  "dataset_cell_count": 263159,
+  "dataset_id": "cd2f23c1-aef1-48ae-8eb4-0bcf124e567d",
+  "dataset_title": "A (Balanced) Bone Marrow Reference Map of Hematopoietic Development",
+  "local_h5ad": "downloads\\hca_probe\\4d7b34ed-d725-43eb-865f-87be6a467323.h5ad"
+}

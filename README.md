@@ -61,7 +61,13 @@ env["DNA_DIFFUSION_REPO"] = str(BASE / "DNA-Diffusion")
 env["DNA_DIFFUSION_CACHE"] = str(BASE / "dna_diffusion_cache")
 env["DNA_DIFFUSION_EPOCHS"] = "5000"
 env["DNA_DIFFUSION_MIN_EPOCHS"] = "2000"
-env["STAGE2_MODE"] = "demo"
+env["STAGE2_MODE"] = "real"
+env["BUILD_REAL_STAGE2_INPUTS"] = "1"
+env["BUILD_ENCODE_STAGE2_DATA"] = "1"
+env["BUILD_HCA_EXPRESSION"] = "1"
+env["BUILD_HPA_EXPRESSION"] = "1"
+env["DOWNLOAD_ENCODE_FILES"] = "1"
+env["DOWNLOAD_REFERENCES"] = "1"
 env["STAGE2_EPOCHS"] = "500"
 env["STAGE2_MIN_EPOCHS"] = "100"
 env["STAGE2_SAMPLES"] = "1000"
@@ -70,7 +76,7 @@ subprocess.run(["bash", "run_all_computational.sh"], env=env, check=True)
 print(Path("reports/all_computational_summary.md").read_text())
 ```
 
-`STAGE2_MODE=demo` validates the full computational plumbing. It is not biological evidence.
+For a cheap software-only check, set `STAGE2_MODE=demo`. Demo mode validates the plumbing but is not biological evidence.
 
 ## Curated Public Inputs
 
@@ -91,7 +97,7 @@ The curated inputs cover FANTOM5 CAGE/TSS, ENCODE RAMPAGE/CAGE/RNA/accessibility
 
 ## Publishable Stage 2 Input Contract
 
-For publishable HSC/T-NK candidate claims, build or provide real public-data inputs. The recommended path is:
+For publishable HSC/T-NK candidate claims, build or provide real public-data inputs. The one-command public-data path is:
 
 ```bash
 STAGE2_MODE=real \
@@ -99,12 +105,12 @@ BUILD_REAL_STAGE2_INPUTS=1 \
 BUILD_ENCODE_STAGE2_DATA=1 \
 DOWNLOAD_ENCODE_FILES=1 \
 DOWNLOAD_REFERENCES=1 \
-HCA_H5AD=/path/to/public_bone_marrow_or_hematopoiesis.h5ad \
-HCA_CELL_TYPE_COLUMN=/obs/cell_type_column_name \
+BUILD_HCA_EXPRESSION=1 \
+BUILD_HPA_EXPRESSION=1 \
 bash run_all_computational.sh
 ```
 
-This automatically selects and downloads ENCODE GRCh38 bigWigs for accessibility, initiation, and promoter-proximal RNA signal. `HCA_H5AD` is strongly recommended because ENCODE does not fully cover megakaryocyte/HSPC expression; the AnnData converter creates `expression_long.tsv` from public single-cell data.
+This automatically selects and downloads ENCODE GRCh38 bigWigs for accessibility, initiation, and promoter-proximal RNA signal, downloads a public marrow HCA/CELLxGENE H5AD for single-cell pseudobulk expression, and falls back to Human Protein Atlas single-cell type expression if the HCA asset is unavailable.
 
 Optional extra public inputs can still be supplied:
 
@@ -184,6 +190,12 @@ python scripts/expression_from_anndata.py \
   --h5ad /path/to/public_bone_marrow_or_hematopoiesis.h5ad \
   --cell-type-column cell_type \
   --output data/hsc_tnk_real/hca_expression_long.tsv
+```
+
+To only inspect the automatically selected HCA/CELLxGENE asset without downloading the large H5AD:
+
+```bash
+python scripts/download_hca_stage2_expression.py --metadata-only
 ```
 
 After a real run:

@@ -72,10 +72,12 @@ python scripts/download_encode_stage2_public_data.py \
   --download \
   --output-dir downloads/encode_stage2
 
-python scripts/expression_from_anndata.py \
-  --h5ad /path/to/public_bone_marrow_or_hematopoiesis.h5ad \
-  --cell-type-column cell_type \
+python scripts/download_hca_stage2_expression.py \
   --output data/hsc_tnk_real/hca_expression_long.tsv
+
+# Optional lightweight fallback if the HCA H5AD download is unavailable.
+python scripts/download_hpa_stage2_expression.py \
+  --output data/hsc_tnk_real/hpa_expression_long.tsv
 
 python scripts/build_real_stage2_inputs.py \
   --output-dir data/hsc_tnk_real \
@@ -84,6 +86,19 @@ python scripts/build_real_stage2_inputs.py \
   --expression-long data/hsc_tnk_real/hca_expression_long.tsv \
   --tss-activity-long /path/to/tss_activity_long.tsv \
   --strict
+```
+
+The full runner does this automatically with:
+
+```bash
+STAGE2_MODE=real \
+BUILD_REAL_STAGE2_INPUTS=1 \
+BUILD_ENCODE_STAGE2_DATA=1 \
+BUILD_HCA_EXPRESSION=1 \
+BUILD_HPA_EXPRESSION=1 \
+DOWNLOAD_ENCODE_FILES=1 \
+DOWNLOAD_REFERENCES=1 \
+bash run_all_computational.sh
 ```
 
 This writes:

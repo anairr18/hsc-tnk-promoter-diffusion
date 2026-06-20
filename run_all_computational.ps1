@@ -6,6 +6,8 @@ param(
   [string]$Stage2Mode = "demo",
   [switch]$BuildRealStage2Inputs,
   [switch]$BuildEncodeStage2Data,
+  [switch]$BuildHcaExpression,
+  [switch]$BuildHpaExpression,
   [switch]$DownloadEncodeFiles,
   [switch]$DownloadReferences,
   [string]$Hg38Fasta = "",
@@ -34,6 +36,8 @@ $env:DNA_DIFFUSION_CACHE = $CacheDir
 $env:STAGE2_MODE = $Stage2Mode
 $env:BUILD_REAL_STAGE2_INPUTS = if ($BuildRealStage2Inputs) { "1" } else { "0" }
 $env:BUILD_ENCODE_STAGE2_DATA = if ($BuildEncodeStage2Data) { "1" } else { "0" }
+if ($PSBoundParameters.ContainsKey("BuildHcaExpression")) { $env:BUILD_HCA_EXPRESSION = if ($BuildHcaExpression) { "1" } else { "0" } }
+if ($PSBoundParameters.ContainsKey("BuildHpaExpression")) { $env:BUILD_HPA_EXPRESSION = if ($BuildHpaExpression) { "1" } else { "0" } }
 $env:DOWNLOAD_ENCODE_FILES = if ($DownloadEncodeFiles) { "1" } else { "0" }
 $env:DOWNLOAD_REFERENCES = if ($DownloadReferences) { "1" } else { "0" }
 if ($Hg38Fasta) { $env:HG38_FASTA = $Hg38Fasta }
