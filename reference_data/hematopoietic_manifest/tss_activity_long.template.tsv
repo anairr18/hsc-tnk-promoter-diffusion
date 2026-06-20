@@ -1,0 +1,4 @@
+chr	tss0	strand	cell_type	value	source	accession	replicate
+chr1	1000000	+	T	4.2	FANTOM5	FANTOM5_CAGE	rep1
+chr1	1000000	+	NK	5.8	FANTOM5	FANTOM5_CAGE	rep1
+chr1	1000000	+	HSC	0.1	FANTOM5	FANTOM5_CAGE	rep1

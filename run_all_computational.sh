@@ -9,6 +9,8 @@ DNA_DIFFUSION_CACHE="${DNA_DIFFUSION_CACHE:-$BASE_DIR/dna_diffusion_cache}"
 RUN_STAGE1="${RUN_STAGE1:-1}"
 RUN_STAGE2="${RUN_STAGE2:-1}"
 STAGE2_MODE="${STAGE2_MODE:-demo}"   # demo or real
+BUILD_REAL_STAGE2_INPUTS="${BUILD_REAL_STAGE2_INPUTS:-0}"
+STRICT_REAL_INPUTS="${STRICT_REAL_INPUTS:-1}"
 PATCH_PRETRAINED="${PATCH_PRETRAINED:-1}"
 
 DNA_DIFFUSION_EPOCHS="${DNA_DIFFUSION_EPOCHS:-3000}"
@@ -49,18 +51,48 @@ if [[ "$STAGE2_MODE" == "demo" ]]; then
   PROMOTER_WINDOWS="$INPUT_DIR/demo_inputs/promoter_windows.tsv"
   ACTIVITY_LONG_TSV="$INPUT_DIR/demo_inputs/activity_long.tsv"
 else
-  : "${ACTIVITY_LONG_TSV:?Set ACTIVITY_LONG_TSV for real Stage 2 mode}"
-  if [[ -n "${PROMOTER_WINDOWS:-}" ]]; then
+  if [[ "$BUILD_REAL_STAGE2_INPUTS" == "1" ]]; then
+    REAL_INPUT_DIR="${REAL_INPUT_DIR:-$PROJECT_ROOT/data/hsc_tnk_real}"
+    REAL_BUILD_ARGS=(
+      "$PROJECT_ROOT/scripts/build_real_stage2_inputs.py"
+      --output-dir "$REAL_INPUT_DIR"
+    )
+    if [[ "${DOWNLOAD_REFERENCES:-0}" == "1" ]]; then
+      REAL_BUILD_ARGS+=(--download-references)
+    fi
+    if [[ -n "${HG38_FASTA:-}" ]]; then
+      REAL_BUILD_ARGS+=(--hg38-fasta "$HG38_FASTA")
+    fi
+    if [[ -n "${GENCODE_GTF:-}" ]]; then
+      REAL_BUILD_ARGS+=(--gencode-gtf "$GENCODE_GTF")
+    fi
+    if [[ -n "${FANTOM_TSS_BED:-}" ]]; then
+      REAL_BUILD_ARGS+=(--fantom-tss-bed "$FANTOM_TSS_BED")
+    fi
+    if [[ -n "${SIGNAL_MANIFEST:-}" ]]; then
+      REAL_BUILD_ARGS+=(--signal-manifest "$SIGNAL_MANIFEST")
+    fi
+    if [[ -n "${EXPRESSION_LONG_TSV:-}" ]]; then
+      REAL_BUILD_ARGS+=(--expression-long "$EXPRESSION_LONG_TSV")
+    fi
+    if [[ -n "${TSS_ACTIVITY_LONG_TSV:-}" ]]; then
+      REAL_BUILD_ARGS+=(--tss-activity-long "$TSS_ACTIVITY_LONG_TSV")
+    fi
+    if [[ -n "${MAX_PROMOTERS:-}" ]]; then
+      REAL_BUILD_ARGS+=(--max-promoters "$MAX_PROMOTERS")
+    fi
+    if [[ "$STRICT_REAL_INPUTS" == "1" ]]; then
+      REAL_BUILD_ARGS+=(--strict)
+    fi
+    python "${REAL_BUILD_ARGS[@]}"
+    PROMOTER_WINDOWS="$REAL_INPUT_DIR/promoter_windows.tsv"
+    ACTIVITY_LONG_TSV="$REAL_INPUT_DIR/activity_long.tsv"
+  elif [[ -n "${PROMOTER_WINDOWS:-}" && -n "${ACTIVITY_LONG_TSV:-}" ]]; then
     PROMOTER_WINDOWS="$PROMOTER_WINDOWS"
+    ACTIVITY_LONG_TSV="$ACTIVITY_LONG_TSV"
   else
-    : "${HG38_FASTA:?Set HG38_FASTA when PROMOTER_WINDOWS is not supplied}"
-    : "${GENCODE_GTF:?Set GENCODE_GTF or provide PROMOTER_WINDOWS}"
-    PROMOTER_WINDOWS="$INPUT_DIR/promoter_windows.tsv"
-    python "$PROJECT_ROOT/scripts/build_promoter_windows.py" \
-      --fasta "$HG38_FASTA" \
-      --gencode-gtf "$GENCODE_GTF" \
-      ${FANTOM_TSS_BED:+--fantom-tss-bed "$FANTOM_TSS_BED"} \
-      --output "$PROMOTER_WINDOWS"
+    echo "Real Stage 2 requires either BUILD_REAL_STAGE2_INPUTS=1 or both PROMOTER_WINDOWS and ACTIVITY_LONG_TSV." >&2
+    exit 1
   fi
 fi
 
@@ -96,8 +128,25 @@ python "$PROJECT_ROOT/scripts/generate_tnk_promoters.py" \
 
 python "$PROJECT_ROOT/scripts/filter_and_rank_candidates.py" \
   --candidates "$STAGE2_DIR"/generated/*.txt \
+  --reference-sequences "$PROMOTER_WINDOWS" "$STAGE2_DIR/tnk_specific_training_set.tsv" \
   --output "$STAGE2_DIR/ranked_candidates.tsv" \
   --top-n 600
+
+if [[ -n "${MOTIF_FILES:-}" ]]; then
+  # shellcheck disable=SC2206
+  MOTIF_ARRAY=($MOTIF_FILES)
+  python "$PROJECT_ROOT/scripts/scan_candidate_motifs.py" \
+    --sequences "$STAGE2_DIR/ranked_candidates.tsv" \
+    --motifs "${MOTIF_ARRAY[@]}" \
+    --output-prefix "$STAGE2_DIR/motif_validation/ranked_candidates"
+fi
+
+if [[ -n "${CCRE_BED:-}" ]]; then
+  python "$PROJECT_ROOT/scripts/annotate_promoter_ccres.py" \
+    --promoters "$PROMOTER_WINDOWS" \
+    --ccre-bed "$CCRE_BED" \
+    --output "$STAGE2_DIR/promoter_ccre_annotations.tsv"
+fi
 
 python "$PROJECT_ROOT/scripts/create_mpra_control_set.py" \
   --activity-matrix "$STAGE2_DIR/promoter_activity_matrix.tsv" \
@@ -123,5 +172,14 @@ cat > "$PROJECT_ROOT/reports/all_computational_summary.md" <<EOF
 
 Note: \`demo\` Stage 2 mode validates software execution but does not constitute biological evidence. Use \`STAGE2_MODE=real\` with real hematopoietic activity inputs for real results.
 EOF
+
+if [[ "$STAGE2_MODE" == "real" ]]; then
+  python "$PROJECT_ROOT/scripts/validate_publishable_package.py" \
+    --require-stage1 \
+    --promoter-windows "$PROMOTER_WINDOWS" \
+    --activity-long "$ACTIVITY_LONG_TSV" \
+    --ranked-candidates "$STAGE2_DIR/ranked_candidates.tsv" \
+    --mpra-library "$STAGE2_DIR/mpra_tnk_promoters.library.tsv"
+fi
 
 echo "DONE. See reports/all_computational_summary.md"

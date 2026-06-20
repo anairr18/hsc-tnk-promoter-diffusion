@@ -10,6 +10,9 @@ This project now has the components needed for a stronger computational-journal 
 - explicit guided reward ranking for target-high/offtarget-low candidates
 - active-learning round design from MPRA measurements
 - MPRA library and barcode-count analysis scripts
+- real Stage 2 input builder for promoter windows plus public accessibility/initiation/expression activity
+- publishable-package validator that rejects demo-data outputs
+- motif scanning and cCRE overlap helpers for candidate interpretation
 
 The strongest POC should report results across at least:
 
@@ -21,5 +24,7 @@ The strongest POC should report results across at least:
 6. endogenous and pretrained generated controls
 7. leakage/novelty audit
 8. predictor-guided ranking with target/off-target reward
+9. real HSC/T-NK activity matrix assembled from public sources, not demo inputs
+10. final publishable validation report with source lockfile and checksums
 
 This is the computational evidence package most likely to survive reviewer questions before wet-lab validation.

@@ -6,3 +6,4 @@ tqdm
 matplotlib
 pyfaidx
 scipy
+pyBigWig

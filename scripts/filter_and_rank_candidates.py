@@ -14,6 +14,20 @@ from project_utils import cpg_count, gc_content, read_sequence_file, validate_se
 UNWANTED_MOTIFS = ["AAAAAA", "TTTTTT", "GCGCGCGC"]
 
 
+def max_homopolymer(seq: str) -> int:
+    best = 0
+    current = 0
+    last = None
+    for base in seq:
+        if base == last:
+            current += 1
+        else:
+            current = 1
+            last = base
+        best = max(best, current)
+    return best
+
+
 def read_candidates(path: Path) -> pd.DataFrame:
     if path.suffix.lower() in {".tsv", ".csv"}:
         sep = "\t" if path.suffix.lower() == ".tsv" else ","
@@ -28,10 +42,12 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--candidates", required=True, nargs="+")
     parser.add_argument("--predictions", default=None, help="Optional TSV with sequence and prediction columns.")
+    parser.add_argument("--reference-sequences", nargs="*", default=[], help="Optional endogenous/training sequence files to exclude exact matches.")
     parser.add_argument("--output", required=True)
-    parser.add_argument("--min-gc", type=float, default=0.30)
-    parser.add_argument("--max-gc", type=float, default=0.75)
+    parser.add_argument("--min-gc", type=float, default=0.35)
+    parser.add_argument("--max-gc", type=float, default=0.70)
     parser.add_argument("--max-cpg", type=int, default=35)
+    parser.add_argument("--max-homopolymer", type=int, default=5)
     parser.add_argument("--top-n", type=int, default=600)
     args = parser.parse_args()
 
@@ -45,12 +61,19 @@ def main() -> None:
     df = df[df["sequence"].map(validate_seq)].drop_duplicates("sequence").copy()
     df["gc"] = df["sequence"].map(gc_content)
     df["cpg"] = df["sequence"].map(cpg_count)
+    df["max_homopolymer"] = df["sequence"].map(max_homopolymer)
     df["has_unwanted_motif"] = df["sequence"].map(lambda s: any(m in s for m in UNWANTED_MOTIFS))
+    reference = set()
+    for item in args.reference_sequences:
+        reference.update(read_sequence_file(item))
+    df["exact_reference_match"] = df["sequence"].isin(reference) if reference else False
     df = df[
         (df["gc"] >= args.min_gc)
         & (df["gc"] <= args.max_gc)
         & (df["cpg"] <= args.max_cpg)
+        & (df["max_homopolymer"] <= args.max_homopolymer)
         & (~df["has_unwanted_motif"])
+        & (~df["exact_reference_match"])
     ].copy()
 
     if args.predictions:

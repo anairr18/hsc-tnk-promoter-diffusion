@@ -61,24 +61,36 @@ Create a public-data manifest:
 
 ```bash
 python scripts/catalog_public_hematopoietic_data.py
+python scripts/curate_stage2_inputs_from_web.py --live-encode --limit-per-encode-query 25
 ```
 
-Build promoter windows:
+Build real publishable inputs from public files:
 
 ```bash
-python scripts/build_promoter_windows.py \
-  --fasta /path/to/hg38.fa \
+python scripts/build_real_stage2_inputs.py \
+  --output-dir data/hsc_tnk_real \
+  --download-references \
   --fantom-tss-bed /path/to/fantom_tss.bed \
-  --gencode-gtf /path/to/gencode.v38.annotation.gtf.gz \
-  --output data/hsc_tnk/promoter_windows.tsv
+  --signal-manifest /path/to/signal_manifest.tsv \
+  --expression-long /path/to/expression_long.tsv \
+  --tss-activity-long /path/to/tss_activity_long.tsv \
+  --strict
 ```
+
+This writes:
+
+- `data/hsc_tnk_real/promoter_windows.tsv`
+- `data/hsc_tnk_real/activity_long.tsv`
+- `data/hsc_tnk_real/source_manifest.lock.tsv`
+- `data/hsc_tnk_real/sample_harmonization.tsv`
+- `reports/publishable/data_qc_report.md`
 
 Merge accessibility, initiation, and expression signals:
 
 ```bash
 python scripts/merge_promoter_activity_matrix.py \
-  --promoters data/hsc_tnk/promoter_windows.tsv \
-  --activity-long data/hsc_tnk/activity_long.tsv \
+  --promoters data/hsc_tnk_real/promoter_windows.tsv \
+  --activity-long data/hsc_tnk_real/activity_long.tsv \
   --output data/hsc_tnk/promoter_activity_matrix.tsv
 ```
 
@@ -121,11 +133,24 @@ python scripts/generate_tnk_promoters.py \
 
 python scripts/filter_and_rank_candidates.py \
   --candidates outputs/hsc_tnk/generated/*.txt \
+  --reference-sequences data/hsc_tnk_real/promoter_windows.tsv data/hsc_tnk/tnk_specific_training_set.tsv \
   --output outputs/hsc_tnk/ranked_candidates.tsv
+
+python scripts/scan_candidate_motifs.py \
+  --sequences outputs/hsc_tnk/ranked_candidates.tsv \
+  --motifs /path/to/JASPAR_OR_HOCOMOCO.pfm \
+  --output-prefix outputs/hsc_tnk/motif_validation/ranked_candidates
+
+python scripts/annotate_promoter_ccres.py \
+  --promoters data/hsc_tnk_real/promoter_windows.tsv \
+  --ccre-bed /path/to/encode_screen_ccres.bed \
+  --output outputs/hsc_tnk/promoter_ccre_annotations.tsv
 
 python scripts/design_mpra_library.py \
   --ranked-candidates outputs/hsc_tnk/ranked_candidates.tsv \
   --output-prefix outputs/hsc_tnk/mpra_tnk_promoters
+
+python scripts/validate_publishable_package.py --require-stage1
 ```
 
 Analyze MPRA barcode counts after wet-lab validation:

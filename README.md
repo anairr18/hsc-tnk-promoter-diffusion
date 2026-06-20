@@ -70,7 +70,7 @@ subprocess.run(["bash", "run_all_computational.sh"], env=env, check=True)
 print(Path("reports/all_computational_summary.md").read_text())
 ```
 
-`STAGE2_MODE=demo` validates the full computational plumbing. It is not biological evidence. For real HSC/T-NK candidate claims, provide `PROMOTER_WINDOWS` and `ACTIVITY_LONG_TSV` built from the curated public sources.
+`STAGE2_MODE=demo` validates the full computational plumbing. It is not biological evidence.
 
 ## Curated Public Inputs
 
@@ -89,9 +89,22 @@ Outputs:
 
 The curated inputs cover FANTOM5 CAGE/TSS, ENCODE RAMPAGE/CAGE/RNA/accessibility, DICE immune TPM, BLUEPRINT hematopoietic epigenomes, Roadmap Epigenomics, HCA CD34 marrow single-cell expression, ENCODE SCREEN cCREs, JASPAR, HOCOMOCO, GENCODE v38, and hg38.
 
-## Real Stage 2 Input Contract
+## Publishable Stage 2 Input Contract
 
-To run the HSC/T-NK stage on real public data:
+For publishable HSC/T-NK candidate claims, build or provide real public-data inputs. The recommended path is:
+
+```bash
+STAGE2_MODE=real \
+BUILD_REAL_STAGE2_INPUTS=1 \
+DOWNLOAD_REFERENCES=1 \
+FANTOM_TSS_BED=/path/to/fantom_hg38_tss.bed \
+SIGNAL_MANIFEST=/path/to/signal_manifest.tsv \
+EXPRESSION_LONG_TSV=/path/to/expression_long.tsv \
+TSS_ACTIVITY_LONG_TSV=/path/to/tss_activity_long.tsv \
+bash run_all_computational.sh
+```
+
+If you already built the tables elsewhere, provide them directly:
 
 ```bash
 STAGE2_MODE=real \
@@ -114,6 +127,42 @@ promoter_id cell_type assay value
 
 Use harmonized `cell_type` values: `HSC`, `HSPC`, `T`, `NK`, `B`, `MYELOID`, `ERYTHROID`, `MEGAKARYOCYTE`.
 Use assays: `accessibility`, `initiation`, `expression`.
+
+`SIGNAL_MANIFEST` columns:
+
+```text
+cell_type assay path source accession replicate
+```
+
+Each `path` should point to an ATAC/DNase/CAGE/RAMPAGE bigWig. `assay` can be `accessibility` or `initiation`.
+
+`EXPRESSION_LONG_TSV` columns:
+
+```text
+cell_type gene_id gene_name value source accession replicate
+```
+
+Use gene-level TPM-like values from DICE/HCA/ENCODE/BLUEPRINT; the builder applies `log1p`.
+
+`TSS_ACTIVITY_LONG_TSV` columns:
+
+```text
+chr tss0 strand cell_type value source accession replicate
+```
+
+or:
+
+```text
+promoter_id cell_type value source accession replicate
+```
+
+Use FANTOM5 CAGE or ENCODE CAGE/RAMPAGE TSS activity. The builder applies `log1p` and joins nearest same-strand TSS within 50bp.
+
+After a real run:
+
+```bash
+python scripts/validate_publishable_package.py --require-stage1
+```
 
 ## Outputs
 

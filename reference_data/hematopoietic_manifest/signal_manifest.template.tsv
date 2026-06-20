@@ -1,0 +1,4 @@
+cell_type	assay	path	source	accession	replicate
+T	accessibility	/path/to/t_cell_atac_or_dnase.bigWig	ENCODE	ENCSRXXXXXX	rep1
+NK	accessibility	/path/to/nk_cell_atac_or_dnase.bigWig	ENCODE	ENCSRXXXXXX	rep1
+HSC	initiation	/path/to/cd34_cage_or_rampage.bigWig	ENCODE/FANTOM5	ENCSRXXXXXX	rep1

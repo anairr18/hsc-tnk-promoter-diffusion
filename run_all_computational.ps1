@@ -4,6 +4,14 @@ param(
   [string]$DNADiffusionRepo = "",
   [string]$CacheDir = "",
   [string]$Stage2Mode = "demo",
+  [switch]$BuildRealStage2Inputs,
+  [switch]$DownloadReferences,
+  [string]$Hg38Fasta = "",
+  [string]$GencodeGtf = "",
+  [string]$FantomTssBed = "",
+  [string]$SignalManifest = "",
+  [string]$ExpressionLongTsv = "",
+  [string]$TssActivityLongTsv = "",
   [int]$Stage1Epochs = 3000,
   [int]$Stage1MinEpochs = 1000,
   [int]$Stage2Epochs = 500,
@@ -20,6 +28,14 @@ $env:BASE_DIR = $BaseDir
 $env:DNA_DIFFUSION_REPO = $DNADiffusionRepo
 $env:DNA_DIFFUSION_CACHE = $CacheDir
 $env:STAGE2_MODE = $Stage2Mode
+$env:BUILD_REAL_STAGE2_INPUTS = if ($BuildRealStage2Inputs) { "1" } else { "0" }
+$env:DOWNLOAD_REFERENCES = if ($DownloadReferences) { "1" } else { "0" }
+if ($Hg38Fasta) { $env:HG38_FASTA = $Hg38Fasta }
+if ($GencodeGtf) { $env:GENCODE_GTF = $GencodeGtf }
+if ($FantomTssBed) { $env:FANTOM_TSS_BED = $FantomTssBed }
+if ($SignalManifest) { $env:SIGNAL_MANIFEST = $SignalManifest }
+if ($ExpressionLongTsv) { $env:EXPRESSION_LONG_TSV = $ExpressionLongTsv }
+if ($TssActivityLongTsv) { $env:TSS_ACTIVITY_LONG_TSV = $TssActivityLongTsv }
 $env:PATCH_PRETRAINED = "1"
 $env:DNA_DIFFUSION_EPOCHS = "$Stage1Epochs"
 $env:DNA_DIFFUSION_MIN_EPOCHS = "$Stage1MinEpochs"
