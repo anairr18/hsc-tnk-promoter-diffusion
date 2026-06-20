@@ -1,0 +1,158 @@
+harmonized_cell_state	search_term	assay_title	accession	biosample	organism	status	total_for_query	url	notes
+HSC_HSPC	CD34	DNase-seq	ENCSR191EII	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR191EII/	
+HSC_HSPC	CD34	DNase-seq	ENCSR122VUW	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR122VUW/	
+HSC_HSPC	CD34	DNase-seq	ENCSR271QSV	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR271QSV/	
+HSC_HSPC	CD34	DNase-seq	ENCSR320TUJ	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR320TUJ/	
+HSC_HSPC	CD34	DNase-seq	ENCSR735BIM	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR735BIM/	
+HSC_HSPC	CD34	DNase-seq	ENCSR564TUY	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR564TUY/	
+HSC_HSPC	CD34	DNase-seq	ENCSR727QHM	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR727QHM/	
+HSC_HSPC	CD34	DNase-seq	ENCSR772HUG	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR772HUG/	
+HSC_HSPC	CD34	DNase-seq	ENCSR807KAK	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR807KAK/	
+HSC_HSPC	CD34	DNase-seq	ENCSR722QLI	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR722QLI/	
+HSC_HSPC	CD34	DNase-seq	ENCSR468ZXN	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR468ZXN/	
+HSC_HSPC	CD34	DNase-seq	ENCSR639ZJI	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR639ZJI/	
+HSC_HSPC	CD34	DNase-seq	ENCSR281HBB	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR281HBB/	
+HSC_HSPC	CD34	DNase-seq	ENCSR495INQ	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR495INQ/	
+HSC_HSPC	CD34	DNase-seq	ENCSR453EVC	common myeloid progenitor, CD34-positive	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR453EVC/	
+HSC_HSPC	CD34	DNase-seq	ENCSR000EMK	hematopoietic multipotent progenitor cell	Homo sapiens	released	20	https://www.encodeproject.org/experiments/ENCSR000EMK/	DNase-seq on human CD34+ (Mobilized)
+HSC_HSPC	CD34	polyA plus RNA-seq	ENCSR830HIN	common myeloid progenitor, CD34-positive	Homo sapiens	released	1	https://www.encodeproject.org/experiments/ENCSR830HIN/	
+HSC_HSPC	CD34	total RNA-seq	ENCSR000CUA	hematopoietic multipotent progenitor cell	Homo sapiens	released	1	https://www.encodeproject.org/experiments/ENCSR000CUA/	The libraries contained in this experiment come from the whole cell fraction of independent isolates of mobilized CD34+ blood progenitor cells. They are stranded PE101 Illumina Hi-Seq RNA-Seq libraries from rRNA-depleted Total RNA > 200 nucleotides in size.
+HSC_HSPC	CD34	CAGE	ENCSR000CKE	hematopoietic multipotent progenitor cell	Homo sapiens	released	1	https://www.encodeproject.org/experiments/ENCSR000CKE/	CAGE on human CD34+ mobilized cellular greater than 200nt polyA+ RNA
+T	T cell	ATAC-seq	ENCSR248ZAC	T-helper 17 cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR248ZAC/	
+T	T cell	ATAC-seq	ENCSR373NFA	activated naive CD4-positive, alpha-beta T cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR373NFA/	
+T	T cell	ATAC-seq	ENCSR174SUM	activated naive CD4-positive, alpha-beta T cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR174SUM/	
+T	T cell	ATAC-seq	ENCSR513EVP	naive thymus-derived CD8-positive, alpha-beta T cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR513EVP/	
+T	T cell	ATAC-seq	ENCSR283LPH	naive thymus-derived CD8-positive, alpha-beta T cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR283LPH/	
+T	T cell	ATAC-seq	ENCSR019XCN	effector memory CD8-positive, alpha-beta T cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR019XCN/	
+T	T cell	ATAC-seq	ENCSR159GFS	CD4-positive, CD25-positive, alpha-beta regulatory T cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR159GFS/	
+T	T cell	ATAC-seq	ENCSR165FYY	central memory CD8-positive, alpha-beta T cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR165FYY/	
+T	T cell	ATAC-seq	ENCSR545UJP	activated CD8-positive, alpha-beta T cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR545UJP/	
+T	T cell	ATAC-seq	ENCSR261PWP	activated CD4-positive, CD25-positive, alpha-beta regulatory T cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR261PWP/	
+T	T cell	ATAC-seq	ENCSR477YSU	activated naive CD8-positive, alpha-beta T cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR477YSU/	
+T	T cell	DNase-seq	ENCSR683QJJ	CD4-positive, alpha-beta T cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR683QJJ/	
+T	T cell	DNase-seq	ENCSR793UEF	T-helper 17 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR793UEF/	
+T	T cell	DNase-seq	ENCSR650QOL	T-helper 1 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR650QOL/	
+T	T cell	DNase-seq	ENCSR654RJL	T-helper 1 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR654RJL/	
+T	T cell	DNase-seq	ENCSR453RFW	T-helper 1 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR453RFW/	
+T	T cell	DNase-seq	ENCSR167JFX	CD4-positive, alpha-beta T cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR167JFX/	
+T	T cell	DNase-seq	ENCSR139KYP	T-helper 17 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR139KYP/	
+T	T cell	DNase-seq	ENCSR623PVB	T-helper 17 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR623PVB/	
+T	T cell	DNase-seq	ENCSR537TXP	T-helper 17 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR537TXP/	
+T	T cell	DNase-seq	ENCSR058ELM	T-helper 1 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR058ELM/	
+T	T cell	DNase-seq	ENCSR370YEN	T-helper 1 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR370YEN/	
+T	T cell	DNase-seq	ENCSR643GHI	CD4-positive, alpha-beta T cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR643GHI/	
+T	T cell	DNase-seq	ENCSR842OFU	T-helper 2 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR842OFU/	
+T	T cell	DNase-seq	ENCSR000EQF	T-helper 17 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR000EQF/	UW human Th17 DNase-seq and DGF
+T	T cell	DNase-seq	ENCSR000EQE	T-helper 1 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR000EQE/	DNase-seq on human Th1 (Wb54553204)
+T	T cell	DNase-seq	ENCSR000EQC	T-helper 1 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR000EQC/	DNase-seq and DGF on human Th1
+T	T cell	DNase-seq	ENCSR162NNR	effector memory CD8-positive, alpha-beta T cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR162NNR/	
+T	T cell	DNase-seq	ENCSR831ZGB	effector memory CD8-positive, alpha-beta T cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR831ZGB/	
+T	T cell	DNase-seq	ENCSR580MXV	effector memory CD4-positive, alpha-beta T cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR580MXV/	
+T	T cell	DNase-seq	ENCSR232FAS	effector memory CD8-positive, alpha-beta T cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR232FAS/	
+T	T cell	DNase-seq	ENCSR665ZKM	central memory CD8-positive, alpha-beta T cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR665ZKM/	
+T	T cell	DNase-seq	ENCSR278WQA	T-helper 9 cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR278WQA/	
+T	T cell	DNase-seq	ENCSR160VHJ	central memory CD8-positive, alpha-beta T cell	Homo sapiens	released	1786	https://www.encodeproject.org/experiments/ENCSR160VHJ/	
+T	T cell	polyA plus RNA-seq	ENCSR545MEZ	CD4-positive, alpha-beta T cell	Homo sapiens	released	576	https://www.encodeproject.org/experiments/ENCSR545MEZ/	
+T	T cell	polyA plus RNA-seq	ENCSR167NUS	naive thymus-derived CD8-positive, alpha-beta T cell	Homo sapiens	released	576	https://www.encodeproject.org/experiments/ENCSR167NUS/	polyA plus RNA-seq of naive thymus-derived CD8-positive, alpha-beta T cell.
+T	T cell	polyA plus RNA-seq	ENCSR230KVL	naive thymus-derived CD8-positive, alpha-beta T cell	Homo sapiens	released	576	https://www.encodeproject.org/experiments/ENCSR230KVL/	polyA plus RNA-seq of naive thymus-derived CD8-positive, alpha-beta T cell.
+T	T cell	polyA plus RNA-seq	ENCSR296LJV	CD4-positive, alpha-beta memory T cell	Homo sapiens	released	576	https://www.encodeproject.org/experiments/ENCSR296LJV/	polyA plus RNA-seq of CD4-positive, alpha-beta memory T cell.
+T	T cell	polyA plus RNA-seq	ENCSR214NBT	CD4-positive, CD25-positive, alpha-beta regulatory T cell	Homo sapiens	released	576	https://www.encodeproject.org/experiments/ENCSR214NBT/	polyA plus RNA-seq of CD4-positive, CD25-positive, alpha-beta regulatory T cell.
+T	T cell	polyA plus RNA-seq	ENCSR816TAY	CD4-positive, CD25-positive, alpha-beta regulatory T cell	Homo sapiens	released	576	https://www.encodeproject.org/experiments/ENCSR816TAY/	polyA plus RNA-seq of CD4-positive, CD25-positive, alpha-beta regulatory T cell.
+T	T cell	polyA plus RNA-seq	ENCSR588TSF	CD4-positive, alpha-beta memory T cell	Homo sapiens	released	576	https://www.encodeproject.org/experiments/ENCSR588TSF/	polyA plus RNA-seq of CD4-positive, alpha-beta memory T cell.
+T	T cell	polyA plus RNA-seq	ENCSR092KKW	naive thymus-derived CD4-positive, alpha-beta T cell	Homo sapiens	released	576	https://www.encodeproject.org/experiments/ENCSR092KKW/	polyA plus RNA-seq of naive thymus-derived CD4-positive, alpha-beta T cell with multiple sclerosis.
+T	T cell	polyA plus RNA-seq	ENCSR159UIB	naive thymus-derived CD8-positive, alpha-beta T cell	Homo sapiens	released	576	https://www.encodeproject.org/experiments/ENCSR159UIB/	polyA plus RNA-seq of naive thymus-derived CD8-positive, alpha-beta T cell with multiple sclerosis.
+T	T cell	polyA plus RNA-seq	ENCSR377HQQ	CD4-positive, alpha-beta memory T cell	Homo sapiens	released	576	https://www.encodeproject.org/experiments/ENCSR377HQQ/	polyA plus RNA-seq of CD4-positive, alpha-beta memory T cell with multiple sclerosis.
+T	T cell	polyA plus RNA-seq	ENCSR673DJS	CD4-positive, alpha-beta memory T cell	Homo sapiens	released	576	https://www.encodeproject.org/experiments/ENCSR673DJS/	polyA plus RNA-seq of CD4-positive, alpha-beta memory T cell with multiple sclerosis.
+T	T cell	total RNA-seq	ENCSR008FFS	T-helper 1 cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR008FFS/	
+T	T cell	total RNA-seq	ENCSR467JQS	T-helper 2 cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR467JQS/	
+T	T cell	total RNA-seq	ENCSR911XSA	naive thymus-derived CD4-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR911XSA/	naïve CD4+ T cell(CD45RO- RA+CCR7+)
+T	T cell	total RNA-seq	ENCSR692DIM	naive thymus-derived CD8-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR692DIM/	naïve CD8+ T cell(CD45RO-CCR7+)
+T	T cell	total RNA-seq	ENCSR899IVV	activated CD4-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR899IVV/	CD4+ T cells, activated day 7
+T	T cell	total RNA-seq	ENCSR308QRZ	effector memory CD8-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR308QRZ/	
+T	T cell	total RNA-seq	ENCSR056RVQ	effector memory CD8-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR056RVQ/	
+T	T cell	total RNA-seq	ENCSR398FYY	effector memory CD8-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR398FYY/	
+T	T cell	total RNA-seq	ENCSR955OOH	effector memory CD8-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR955OOH/	
+T	T cell	total RNA-seq	ENCSR380UXM	effector memory CD4-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR380UXM/	
+T	T cell	total RNA-seq	ENCSR971LSO	effector memory CD8-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR971LSO/	
+T	T cell	total RNA-seq	ENCSR509WMO	central memory CD4-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR509WMO/	
+T	T cell	total RNA-seq	ENCSR297AZN	CD4-positive, alpha-beta memory T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR297AZN/	memory CD4+ T cell (CD45RO+CCR7+/-)
+T	T cell	total RNA-seq	ENCSR411MUF	CD4-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR411MUF/	CD4+ T cells (CD3+CD4+)
+T	T cell	total RNA-seq	ENCSR552RFJ	activated CD8-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR552RFJ/	CD8+ T cells, activated day 7
+T	T cell	total RNA-seq	ENCSR282GZU	activated CD8-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR282GZU/	CD8+ T cells, activated day 7
+T	T cell	total RNA-seq	ENCSR264VJN	activated CD8-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR264VJN/	CD8+ T cells, activated day 2
+T	T cell	total RNA-seq	ENCSR533TOW	activated CD8-positive, alpha-beta T cell	Homo sapiens	released	1896	https://www.encodeproject.org/experiments/ENCSR533TOW/	CD8+ T cells, activated day 2
+NK	natural killer	ATAC-seq	ENCSR044ATC	natural killer cell	Homo sapiens	released	5	https://www.encodeproject.org/experiments/ENCSR044ATC/	
+NK	natural killer	ATAC-seq	ENCSR373GMM	natural killer cell	Homo sapiens	released	5	https://www.encodeproject.org/experiments/ENCSR373GMM/	
+NK	natural killer	ATAC-seq	ENCSR808HWS	natural killer cell	Homo sapiens	released	5	https://www.encodeproject.org/experiments/ENCSR808HWS/	
+NK	natural killer	ATAC-seq	ENCSR305QTE	natural killer cell	Homo sapiens	released	5	https://www.encodeproject.org/experiments/ENCSR305QTE/	
+NK	natural killer	ATAC-seq	ENCSR854TTM	natural killer cell	Homo sapiens	released	5	https://www.encodeproject.org/experiments/ENCSR854TTM/	
+NK	natural killer	DNase-seq	ENCSR615IPZ	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR615IPZ/	
+NK	natural killer	DNase-seq	ENCSR987TNB	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR987TNB/	
+NK	natural killer	DNase-seq	ENCSR477GGR	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR477GGR/	
+NK	natural killer	DNase-seq	ENCSR480NHU	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR480NHU/	
+NK	natural killer	DNase-seq	ENCSR667XOX	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR667XOX/	
+NK	natural killer	DNase-seq	ENCSR276SCO	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR276SCO/	
+NK	natural killer	DNase-seq	ENCSR633MZF	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR633MZF/	
+NK	natural killer	DNase-seq	ENCSR762ZQK	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR762ZQK/	
+NK	natural killer	DNase-seq	ENCSR711KOI	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR711KOI/	
+NK	natural killer	DNase-seq	ENCSR012RCX	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR012RCX/	
+NK	natural killer	DNase-seq	ENCSR376VHG	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR376VHG/	
+NK	natural killer	DNase-seq	ENCSR863HYZ	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR863HYZ/	
+NK	natural killer	DNase-seq	ENCSR618TIP	natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR618TIP/	
+NK	natural killer	DNase-seq	ENCSR407WGG	natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR407WGG/	
+NK	natural killer	DNase-seq	ENCSR794TLA	natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR794TLA/	
+NK	natural killer	DNase-seq	ENCSR723JLG	natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR723JLG/	
+NK	natural killer	DNase-seq	ENCSR194AQB	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR194AQB/	
+NK	natural killer	DNase-seq	ENCSR641JOW	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR641JOW/	
+NK	natural killer	DNase-seq	ENCSR283JAS	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR283JAS/	
+NK	natural killer	DNase-seq	ENCSR348QXB	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR348QXB/	
+NK	natural killer	DNase-seq	ENCSR329BRN	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR329BRN/	
+NK	natural killer	DNase-seq	ENCSR182RCX	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR182RCX/	
+NK	natural killer	DNase-seq	ENCSR748KVP	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR748KVP/	
+NK	natural killer	DNase-seq	ENCSR375TBE	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR375TBE/	
+NK	natural killer	DNase-seq	ENCSR897HPT	immature natural killer cell	Homo sapiens	released	52	https://www.encodeproject.org/experiments/ENCSR897HPT/	
+NK	natural killer	polyA plus RNA-seq	ENCSR972TMF	immature natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR972TMF/	polyA plus RNA-seq of immature natural killer cell.
+NK	natural killer	polyA plus RNA-seq	ENCSR963EVZ	immature natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR963EVZ/	polyA plus RNA-seq of immature natural killer cell.
+NK	natural killer	polyA plus RNA-seq	ENCSR766TSI	immature natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR766TSI/	polyA plus RNA-seq of immature natural killer cell with multiple sclerosis.
+NK	natural killer	polyA plus RNA-seq	ENCSR701JXD	immature natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR701JXD/	polyA plus RNA-seq of immature natural killer cell with multiple sclerosis.
+NK	natural killer	polyA plus RNA-seq	ENCSR039JPA	immature natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR039JPA/	polyA plus RNA-seq of immature natural killer cell with multiple sclerosis.
+NK	natural killer	polyA plus RNA-seq	ENCSR672OYP	immature natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR672OYP/	polyA plus RNA-seq of immature natural killer cell.
+NK	natural killer	total RNA-seq	ENCSR388NNP	natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR388NNP/	h.CD56+_DONOR 2: 0 hour no activation
+NK	natural killer	total RNA-seq	ENCSR745APD	natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR745APD/	h.CD56+_DONOR 2: 72 hour activation IL-12+IL-15+IL-18, 100ng/ml
+NK	natural killer	total RNA-seq	ENCSR357XTU	natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR357XTU/	
+NK	natural killer	total RNA-seq	ENCSR842NDO	natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR842NDO/	h.CD56+_DONOR 3: 72 hour activation IL-12+IL-15+IL-18, 100ng/ml
+NK	natural killer	total RNA-seq	ENCSR927KSI	natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR927KSI/	PBMC (NK MACS sort)NK
+NK	natural killer	total RNA-seq	ENCSR584CVV	natural killer cell	Homo sapiens	released	6	https://www.encodeproject.org/experiments/ENCSR584CVV/	h.CD56+_DONOR 3: 0 hour no activation
+B	B cell	ATAC-seq	ENCSR685OFR	naive B cell	Homo sapiens	released	334	https://www.encodeproject.org/experiments/ENCSR685OFR/	
+B	B cell	DNase-seq	ENCSR891VOV	B cell	Homo sapiens	released	1889	https://www.encodeproject.org/experiments/ENCSR891VOV/	
+B	B cell	polyA plus RNA-seq	ENCSR092CNB	IgD-negative memory B cell	Homo sapiens	released	573	https://www.encodeproject.org/experiments/ENCSR092CNB/	polyA plus RNA-seq of IgD-negative memory B cell.
+MYELOID	monocyte	DNase-seq	ENCSR000ELE	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR000ELE/	Duke human Monocytes-CD14+ DNase-seq
+MYELOID	monocyte	DNase-seq	ENCSR101KYT	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR101KYT/	
+MYELOID	monocyte	DNase-seq	ENCSR476KXY	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR476KXY/	
+MYELOID	monocyte	DNase-seq	ENCSR229QWH	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR229QWH/	
+MYELOID	monocyte	DNase-seq	ENCSR601HWV	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR601HWV/	
+MYELOID	monocyte	DNase-seq	ENCSR103ZWK	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR103ZWK/	
+MYELOID	monocyte	DNase-seq	ENCSR288RCG	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR288RCG/	
+MYELOID	monocyte	DNase-seq	ENCSR695AUY	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR695AUY/	
+MYELOID	monocyte	DNase-seq	ENCSR674JIL	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR674JIL/	
+MYELOID	monocyte	DNase-seq	ENCSR376UDG	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR376UDG/	
+MYELOID	monocyte	DNase-seq	ENCSR956AOH	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR956AOH/	
+MYELOID	monocyte	DNase-seq	ENCSR889CFS	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR889CFS/	
+MYELOID	monocyte	DNase-seq	ENCSR073CPU	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR073CPU/	
+MYELOID	monocyte	DNase-seq	ENCSR629GFF	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR629GFF/	
+MYELOID	monocyte	DNase-seq	ENCSR083DZB	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR083DZB/	
+MYELOID	monocyte	DNase-seq	ENCSR943TGB	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR943TGB/	
+MYELOID	monocyte	DNase-seq	ENCSR000EPK	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR000EPK/	DNase-seq on human Monocytes CD14+ (RO01746)
+MYELOID	monocyte	DNase-seq	ENCSR609PYW	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR609PYW/	
+MYELOID	monocyte	DNase-seq	ENCSR514NZF	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR514NZF/	
+MYELOID	monocyte	DNase-seq	ENCSR943WGU	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR943WGU/	
+MYELOID	monocyte	DNase-seq	ENCSR343TXL	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR343TXL/	
+MYELOID	monocyte	DNase-seq	ENCSR916HXX	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR916HXX/	
+MYELOID	monocyte	DNase-seq	ENCSR974QPL	CD14-positive monocyte	Homo sapiens	released	43	https://www.encodeproject.org/experiments/ENCSR974QPL/	
+MYELOID	monocyte	polyA plus RNA-seq	ENCSR384HOK	CD14-positive monocyte	Homo sapiens	released	7	https://www.encodeproject.org/experiments/ENCSR384HOK/	polyA plus RNA-seq of CD14-positive monocyte.
+MYELOID	monocyte	polyA plus RNA-seq	ENCSR968ACN	CD14-positive monocyte	Homo sapiens	released	7	https://www.encodeproject.org/experiments/ENCSR968ACN/	polyA plus RNA-seq of CD14-positive monocyte with multiple sclerosis.
+MYELOID	monocyte	polyA plus RNA-seq	ENCSR467YDA	CD14-positive monocyte	Homo sapiens	released	7	https://www.encodeproject.org/experiments/ENCSR467YDA/	polyA plus RNA-seq of CD14-positive monocyte.
+MYELOID	monocyte	polyA plus RNA-seq	ENCSR992MUF	CD14-positive monocyte	Homo sapiens	released	7	https://www.encodeproject.org/experiments/ENCSR992MUF/	polyA plus RNA-seq of CD14-positive monocyte.
+MYELOID	monocyte	polyA plus RNA-seq	ENCSR638OAH	CD14-positive monocyte	Homo sapiens	released	7	https://www.encodeproject.org/experiments/ENCSR638OAH/	polyA plus RNA-seq of CD14-positive monocyte with multiple sclerosis.
+MYELOID	monocyte	polyA plus RNA-seq	ENCSR264LON	CD14-positive monocyte	Homo sapiens	released	7	https://www.encodeproject.org/experiments/ENCSR264LON/	polyA plus RNA-seq of CD14-positive monocyte with multiple sclerosis.
+MYELOID	monocyte	polyA plus RNA-seq	ENCSR000CUC	CD14-positive monocyte	Homo sapiens	released	7	https://www.encodeproject.org/experiments/ENCSR000CUC/	The libraries contained in this experiment come from the whole cell fraction of independent isolates of mobilized CD14+ monocytes. They are stranded PE101 Illumina Hi-Seq RNA-Seq libraries from rRNA-depleted Poly-A+ RNA > 200 nucleotides in size.

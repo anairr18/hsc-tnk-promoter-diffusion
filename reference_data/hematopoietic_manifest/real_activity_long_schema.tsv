@@ -1,0 +1,4 @@
+promoter_id	cell_type	assay	value	recommended_source	notes
+prom_00000001	T	accessibility	2.71	ENCODE/DICE/BLUEPRINT/Roadmap after promoter overlap or gene join	Numeric, non-negative. Use log1p-normalized signal or TPM-like scale consistently.
+prom_00000001	NK	initiation	4.13	FANTOM5 CAGE or ENCODE RAMPAGE/CAGE	Promoter/TSS signal should be assigned to the 200bp window.
+prom_00000001	HSC	expression	0.12	HCA/DICE/ENCODE/BLUEPRINT gene-level expression	Join by gene_id/gene_name from promoter window table.

@@ -1,0 +1,9 @@
+harmonized_cell_state	role	primary_sources	fallback_sources	required_assays
+HSC	off-target leakiness baseline	HCA CD34 bone marrow; FANTOM5 CAGE if matched; BLUEPRINT/Roadmap CD34 tracks	ENCODE CD34 DNase/RNA/CAGE candidates from live query	expression, accessibility, initiation if available
+HSPC	off-target leakiness baseline and progenitor specificity	HCA pseudobulk; BLUEPRINT/Roadmap progenitors; ENCODE CD34/progenitor assays	GENCODE-linked expression from HCA only	expression, accessibility
+T	target activity	DICE T-cell TPM; FANTOM5 T-cell CAGE; ENCODE T-cell ATAC/DNase/RNA	BLUEPRINT/Roadmap T-cell tracks	expression, accessibility, initiation if available
+NK	target activity	DICE NK TPM; ENCODE NK ATAC/DNase/RNA; FANTOM5 NK-like CAGE if available	BLUEPRINT/Roadmap NK tracks	expression, accessibility
+B	off-target mature lymphoid	DICE B-cell TPM; ENCODE/Roadmap/BLUEPRINT B-cell tracks	FANTOM5 B-cell CAGE	expression, accessibility
+MYELOID	off-target myeloid	DICE monocyte TPM; BLUEPRINT monocyte DNase/RNA; ENCODE monocyte assays	Roadmap monocyte/macrophage tracks	expression, accessibility
+ERYTHROID	off-target erythroid lineage	ENCODE erythroid progenitor RNA/ATAC/DNase; BLUEPRINT/Roadmap erythroid tracks	HCA marrow pseudobulk	expression, accessibility
+MEGAKARYOCYTE	off-target megakaryocyte lineage	ENCODE megakaryocyte RNA/ATAC; BLUEPRINT/Roadmap megakaryocyte tracks	HCA marrow pseudobulk	expression, accessibility

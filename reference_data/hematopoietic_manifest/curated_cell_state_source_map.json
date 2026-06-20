@@ -1,0 +1,58 @@
+[
+  {
+    "fallback_sources": "ENCODE CD34 DNase/RNA/CAGE candidates from live query",
+    "harmonized_cell_state": "HSC",
+    "primary_sources": "HCA CD34 bone marrow; FANTOM5 CAGE if matched; BLUEPRINT/Roadmap CD34 tracks",
+    "required_assays": "expression, accessibility, initiation if available",
+    "role": "off-target leakiness baseline"
+  },
+  {
+    "fallback_sources": "GENCODE-linked expression from HCA only",
+    "harmonized_cell_state": "HSPC",
+    "primary_sources": "HCA pseudobulk; BLUEPRINT/Roadmap progenitors; ENCODE CD34/progenitor assays",
+    "required_assays": "expression, accessibility",
+    "role": "off-target leakiness baseline and progenitor specificity"
+  },
+  {
+    "fallback_sources": "BLUEPRINT/Roadmap T-cell tracks",
+    "harmonized_cell_state": "T",
+    "primary_sources": "DICE T-cell TPM; FANTOM5 T-cell CAGE; ENCODE T-cell ATAC/DNase/RNA",
+    "required_assays": "expression, accessibility, initiation if available",
+    "role": "target activity"
+  },
+  {
+    "fallback_sources": "BLUEPRINT/Roadmap NK tracks",
+    "harmonized_cell_state": "NK",
+    "primary_sources": "DICE NK TPM; ENCODE NK ATAC/DNase/RNA; FANTOM5 NK-like CAGE if available",
+    "required_assays": "expression, accessibility",
+    "role": "target activity"
+  },
+  {
+    "fallback_sources": "FANTOM5 B-cell CAGE",
+    "harmonized_cell_state": "B",
+    "primary_sources": "DICE B-cell TPM; ENCODE/Roadmap/BLUEPRINT B-cell tracks",
+    "required_assays": "expression, accessibility",
+    "role": "off-target mature lymphoid"
+  },
+  {
+    "fallback_sources": "Roadmap monocyte/macrophage tracks",
+    "harmonized_cell_state": "MYELOID",
+    "primary_sources": "DICE monocyte TPM; BLUEPRINT monocyte DNase/RNA; ENCODE monocyte assays",
+    "required_assays": "expression, accessibility",
+    "role": "off-target myeloid"
+  },
+  {
+    "fallback_sources": "HCA marrow pseudobulk",
+    "harmonized_cell_state": "ERYTHROID",
+    "primary_sources": "ENCODE erythroid progenitor RNA/ATAC/DNase; BLUEPRINT/Roadmap erythroid tracks",
+    "required_assays": "expression, accessibility",
+    "role": "off-target erythroid lineage"
+  },
+  {
+    "fallback_sources": "HCA marrow pseudobulk",
+    "harmonized_cell_state": "MEGAKARYOCYTE",
+    "primary_sources": "ENCODE megakaryocyte RNA/ATAC; BLUEPRINT/Roadmap megakaryocyte tracks",
+    "required_assays": "expression, accessibility",
+    "role": "off-target megakaryocyte lineage"
+  }
+]

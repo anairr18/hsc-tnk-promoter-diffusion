@@ -31,6 +31,8 @@ def main() -> None:
     parser.add_argument("--num-profile-bins", type=int, default=4)
     parser.add_argument("--run", action="store_true", help="Actually launch uv run train.py after exporting data.")
     parser.add_argument("--epochs", type=int, default=None)
+    parser.add_argument("--min-epochs", type=int, default=None)
+    parser.add_argument("--batch-size", type=int, default=None)
     args = parser.parse_args()
 
     repo = Path(args.dnadiffusion_repo)
@@ -101,6 +103,11 @@ def main() -> None:
         ]
         if args.epochs is not None:
             cmd.append(f"training.num_epochs={args.epochs}")
+        if args.min_epochs is not None:
+            cmd.append(f"training.min_epochs={args.min_epochs}")
+        if args.batch_size is not None:
+            cmd.append(f"training.batch_size={args.batch_size}")
+        cmd.append("training.sample_epoch=999999")
         env = os.environ.copy()
         env["WANDB_DISABLED"] = "true"
         env["PYTHONUNBUFFERED"] = "1"
